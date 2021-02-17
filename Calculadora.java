@@ -11,16 +11,16 @@ import stacks.*;
 
 public class Calculadora {
     
-    /**
+     /**
      * <pre>
      * metodo que verifica que la expresion no tenga errores sintacticos
-     * Posibles errores: parentesis no balanceados, operadores juntos,
-     * cambio de signo(_) antes de un operador.
+     * Posibles errores: parentesis no balanceados((), operadores juntos(*-),
+     * cambio de signo(_+) antes de un operador.
      * </pre>
      * @param expresion expresion matematica en notacion infija
      * @return <ul>
-     *      <li>true: la expresion no tiene errores</li>
-     *      <li>false: la expresion tiene errores</li>
+     *      <li>true: la expresion no tiene errores sintacticos</li>
+     *      <li>false: la expresion tiene errores sintacticos</li>
      *      </ul>
      */
     public static boolean verificaSintaxis(String expresion){
