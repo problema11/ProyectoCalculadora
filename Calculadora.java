@@ -3,9 +3,10 @@ package Algortimos;
 import stacks.*;
 
 /**
- *
  * @author aldahir
- * @version 1.0 16 de feb 2021 clase con funcionalidad principal del proyecto
+ * @version 1.0
+ * 16 de feb 2021
+ * clase con funcionalidad principal del proyecto
  */
 public class Calculadora {
     
