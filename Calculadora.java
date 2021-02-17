@@ -11,6 +11,9 @@ import stacks.*;
 
 public class Calculadora {
     
+    public Calculadora(){
+    }
+    
     /**
      * <pre>
      * Método que verifica que la expresión no tenga errores sintácticos.
