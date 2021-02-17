@@ -11,18 +11,19 @@ import stacks.*;
 
 public class Calculadora {
     
-     /**
+    /**
      * <pre>
-     * metodo que verifica que la expresion no tenga errores sintacticos
-     * Posibles errores: parentesis no balanceados((), operadores juntos(*-),
+     * Método que verifica que la expresión no tenga errores sintácticos.
+     * Posibles errores: paréntesis no balanceados((), operadores juntos(*-),
      * cambio de signo(_+) antes de un operador.
      * </pre>
-     * @param expresion expresion matematica en notacion infija
+     * @param expresion expresión matemática en notación infija
      * @return <ul>
-     *      <li>true: la expresion no tiene errores sintacticos</li>
-     *      <li>false: la expresion tiene errores sintacticos</li>
+     *      <li>true: la expresión no tiene errores</li>
+     *      <li>false: la expresión tiene errores</li>
      *      </ul>
      */
+    
     public static boolean verificaSintaxis(String expresion){
         boolean res=false;
         PilaADT <Character> p=new PilaA();
@@ -64,7 +65,7 @@ public class Calculadora {
                 else{
                     if(c=='_'){// _ indica cambio de signo
                         try{
-                            if(p.isEmpty()){// no puede haber un cambio de signo 
+                            if(p.isEmpty()){//no puede haber un cambio de signo 
                                 exit=false; //antes de un operador
                             }     
                         }
@@ -95,8 +96,8 @@ public class Calculadora {
         if(verificaSintaxis(cad))
             System.out.println("expresion correcta");
         else
-            System.out.println("expresion no correcta");
-            
+            System.out.println("expresion no correcta");  
     }
 }
+
 
