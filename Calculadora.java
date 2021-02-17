@@ -64,8 +64,8 @@ public class Calculadora {
                 else{
                     if(c=='_'){// _ indica cambio de signo
                         try{
-                            if(p.isEmpty()){// no puede haber un cambio de signo antes de un operador
-                                exit=false;
+                            if(p.isEmpty()){// no puede haber un cambio de signo 
+                                exit=false; //antes de un operador
                             }     
                         }
                         catch(Exception e){                    
