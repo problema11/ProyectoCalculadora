@@ -1,10 +1,10 @@
-
 package Algortimos;
 import stacks.*;
 
 /**
  *
  * @author aldahir
+ * @version 1.0
  * 16 de feb 2021
  * clase con funcionalidad principal del proyecto
  */
@@ -12,11 +12,17 @@ import stacks.*;
 public class Calculadora {
     
     /**
+     * <pre>
      * metodo que verifica que la expresion no tenga errores sintacticos
-     * @param expresion 
-     * @return res 
+     * Posibles errores: parentesis no balanceados, operadores juntos,
+     * cambio de signo(_) antes de un operador.
+     * </pre>
+     * @param expresion expresion matematica en notacion infija
+     * @return <ul>
+     *      <li>true: la expresion no tiene errores</li>
+     *      <li>false: la expresion tiene errores</li>
+     *      </ul>
      */
-
     public static boolean verificaSintaxis(String expresion){
         boolean res=false;
         PilaADT <Character> p=new PilaA();
@@ -93,3 +99,4 @@ public class Calculadora {
             
     }
 }
+
