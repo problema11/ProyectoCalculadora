@@ -200,7 +200,7 @@ public class Calculadora {
                 if (c=='('){
                     operadores.push(arreExp[i]);
                 }
-                if (isOperator(c)){
+                if (esOperador(c)){
                     while ( operadores.peek()!=null && esOperador(operadores.peek().charAt(0)) && 
                             checarJerarquia(c)<=checarJerarquia(operadores.peek().charAt(0))){
                         notPost[k]=operadores.pop();
