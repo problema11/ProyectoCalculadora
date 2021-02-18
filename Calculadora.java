@@ -189,11 +189,11 @@ public class Calculadora {
                 c=arreExp[i].charAt(0);
                 if (esOperando(c)){
                     if (arreExp[i].charAt(0)=='_'){
-                        notPost[k]=arreExp[i].replace(indnegativo, negativo);
+                        notPost[k]=arreExp[i].replace(indnegativo, negativo)+" ";
                         k++;
                     }
                     else{
-                        notPost[k]=arreExp[i];
+                        notPost[k]=arreExp[i]+" ";
                         k++;
                     }
                 }
@@ -203,14 +203,14 @@ public class Calculadora {
                 if (esOperador(c)){
                     while ( operadores.peek()!=null && esOperador(operadores.peek().charAt(0)) && 
                             checarJerarquia(c)<=checarJerarquia(operadores.peek().charAt(0))){
-                        notPost[k]=operadores.pop();
+                        notPost[k]=operadores.pop()+" ";
                         k++;        
                     }
                     operadores.push(arreExp[i]);
                 }
                 if(c==')'){
                     while(operadores.peek()!=null && esOperador(operadores.peek().charAt(0)) && operadores.peek().charAt(0)!='('){
-                        notPost[k]=operadores.pop();
+                        notPost[k]=operadores.pop()+" ";
                         k++;
                     }
                     operadores.pop();
@@ -219,7 +219,86 @@ public class Calculadora {
         }
         return notPost;
     }
-
+    
+    /**
+     * Método que convierte el arreglo de notacionPostfija a una cadena en la que se pueda trabajar
+     * @param notPost, String[] que contiene a la notación Postfija
+     * @return una cadena con la que vamos a trabajar
+     */
+    public static String convertirACad(String[] notPost){
+        StringBuilder cad= new StringBuilder();
+        for(int i=0; i<notPost.length; i++)
+            cad.append(notPost[i]);
+        return cad.toString();
+    }
+    
+    /**
+     * Método que asegura que lo que se tiene en el string sea un número, se utlizará en la evaluación 
+     * @param cadena un string que se quiere asegurar que sea un número
+     * @return <ul>
+     * <li>true: la cadena sí es un número</li>
+     * <li>false: la cadena no es un número</li>
+     * </ul>
+     */
+    public static boolean esNumero(String cadena) {
+        boolean resultado;
+        try {
+            Double.parseDouble(cadena);
+            resultado = true;
+        } catch (NumberFormatException excepcion) {
+            resultado = false;
+        }
+        return resultado;
+    }
+    
+    /**
+     * Método que evalua la expresión postfija y da el resultado
+     * 
+     * @param String postfija, la expresion ya convertida a un string 
+     * @return el resultado de la expresion 
+    
+    */
+    public static double evaluaExpresion (String postfija){
+        PilasADT <Double> op = new pilaA();
+        String[] pos=postfija.split(" ");
+        double resultado=0; 
+        double res=0; 
+        double dato1=0;
+        double dato2=0;
+        //checar para todos los elementos del arreglo de postfija que son los elementos
+        for(int i=0;i<pos.length; i++){
+            if(esNumero(pos[i].toString())){
+                op.push(Double.parseDouble(pos[i].toString()));
+            }
+            else if(pos[i].charAt(0)=='+'){
+                dato2=op.pop();
+                dato1=op.pop();
+                resultado=dato1+dato2;
+                op.push(resultado);
+            }
+            else if(pos[i].charAt(0)=='-'){
+                dato2=op.pop();
+                dato1=op.pop();
+                resultado=dato1-dato2;
+                op.push(resultado);
+            }
+            else if(pos[i].charAt(0)=='*'){
+                dato2=op.pop();
+                dato1=op.pop();
+                resultado=dato1*dato2;
+                op.push(resultado);
+            }
+            else if(pos[i].charAt(0)=='/'){
+                dato2=op.pop();
+                dato1=op.pop();
+                resultado=dato1/dato2;
+                op.push(resultado);
+            }
+        }
+        res=op.pop();
+        return res;
+    }
+    
     public static void main(String[] args) {
         String cad = "(8+9)*6-7/(4*5)*8+45.0+9";
 
