@@ -115,12 +115,12 @@ public class Calculadora {
      * @return determina si el char dado es un operando
      */
     public static boolean esOperando(char c){
-        boolean operand0=false;
+        boolean operando=false;
         if (c=='1' || c=='2' || c=='3' || c=='4' || c=='5' || c=='6' || c=='7' || c=='8'
                 || c=='9' || c=='0'  || c=='_' || c=='.'){
-            operand0=true;
+            operando=true;
         }
-        return operand;
+        return operando;
         
     }
     
