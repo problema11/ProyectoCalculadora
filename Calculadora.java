@@ -285,7 +285,6 @@ public class Calculadora {
                     }
                 }  
             }
-            
             i++;
         } 
         res=p.pop();
