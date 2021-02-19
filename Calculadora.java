@@ -292,27 +292,28 @@ public class Calculadora {
         return res;
     }
 
+    public static double calcula(String expresion){
+        double res=-0.00021; //valor que indica expresion incorrecta
+        String[] arr;
+        String[] pos; 
+        
+        if(verificaSintaxis(expresion)){ //verifica
+            arr=hacerArreglo(expresion);
+            pos=notacionPostfija(arr); //convierte a posfija
+            res=evaluaPosfija(pos); //evalua
+        }
+        
+        return res;
+    }
+
     public static void main(String[] args) {
-        String cad ="(2+(3*4)-_9)";
-        String[] arr=hacerArreglo(cad);
-        String[] res=notacionPostfija(arr);
-        double tot=evaluaPosfija(res);
-
-        if (verificaSintaxis(cad)) {
-            System.out.println("expresion correcta");
-        } else {
-            System.out.println("expresion no correcta");
-        }
+        String cad ="4*5-6*(4-5*(9+6))";
+        double res;
         
-
-        System.out.println(cad);
-        for(int i=0;i<res.length;i++){
-            System.out.print(res[i]+" ");
-        }
-        
-        System.out.println(tot);
-        
-        
-
+        res=calcula(cad);
+        if(res!=-0.00021)
+            System.out.println(res);
+        else
+            System.out.println("no se puede calcular");
     }
 }
