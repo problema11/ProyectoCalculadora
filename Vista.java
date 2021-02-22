@@ -2,7 +2,7 @@ package Algortimos;
 
 /**
  *
- * @author aldahir
+ * @author Francisco
  */
 public class Vista extends javax.swing.JFrame {
     private String expresion="";
