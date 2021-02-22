@@ -8,9 +8,6 @@ import stacks.*;
  * clase con funcionalidad principal del proyecto
  */
 public class Calculadora {
-    
-    public Calculadora() {
-    }
 
     /**
      * <pre>
